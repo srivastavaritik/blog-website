@@ -7,14 +7,17 @@ import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
 
 function App() {
-  const [isAuth, setisAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <BrowserRouter>
-    <NavBar/>
+      <NavBar isAuth={isAuth} setIsAuth={setIsAuth} />
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/createpost' element={<CreatePost/>}/>
-        <Route path='/login' element={<Login setisAuth={setisAuth}/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/createpost" element={<CreatePost />} />
+        <Route
+          path="/login"
+          element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />}
+        />
       </Routes>
     </BrowserRouter>
   );
